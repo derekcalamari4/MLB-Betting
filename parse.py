@@ -12,8 +12,8 @@ def csvLength(csv):
 # parse and return dictionary with key: team, value: [h, r, rg, hr, rbi, obp, slg, ops]
 def teamBatting():
     teams = []
-    length = csvLength('teamstandardbatting.csv')
-    team_batting = pandas.read_csv('teamstandardbatting.csv')
+    length = csvLength('data/teamstandardbatting.csv')
+    team_batting = pandas.read_csv('data/teamstandardbatting.csv')
     output = {}
 
     for i in range(length-1):
@@ -29,8 +29,8 @@ def teamBatting():
 #parse and return dictionary with key: team, value: [RA/G, ERA, WHIP SO/W]
 def teamPitching():
     teams = []
-    length = csvLength('teamstandardpitching.csv')
-    team_pitching = pandas.read_csv('teamstandardpitching.csv')
+    length = csvLength('data/teamstandardpitching.csv')
+    team_pitching = pandas.read_csv('data/teamstandardpitching.csv')
     output = {}
 
     for i in range(length-1):
@@ -45,8 +45,8 @@ def teamPitching():
 #parse and return dictionary with key: team, value: WAR
 def teamWar():
     teams = []
-    length = csvLength('teamwar.csv')
-    team_war = pandas.read_csv('teamwar.csv')
+    length = csvLength('data/teamwar.csv')
+    team_war = pandas.read_csv('data/teamwar.csv')
     output = {}
 
     for i in range(length-1):
@@ -60,8 +60,8 @@ def teamWar():
 #parse and return dictionary with key: team, value: defEff
 def teamFielding():
     teams = []
-    length = csvLength('teamfielding.csv')
-    team_fielding = pandas.read_csv('teamfielding.csv')
+    length = csvLength('data/teamfielding.csv')
+    team_fielding = pandas.read_csv('data/teamfielding.csv')
     output = {}
 
     for i in range(length-1):
@@ -70,5 +70,6 @@ def teamFielding():
             teams.append(team)
             output[team_fielding["Tm"][i]] = [team_fielding['DefEff'][i]]
     return output
+
 
 
