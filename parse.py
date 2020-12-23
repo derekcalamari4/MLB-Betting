@@ -9,7 +9,7 @@ def csvLength(csv):
     return numRows
 
 
-# parse and return dictionary with key: team, value: [h, r, rg, hr, rbi, obp, slg, ops, opsp]
+# parse and return dictionary with key: team, value: [h, r, rg, hr, rbi, obp, slg, ops]
 def teamBatting():
     teams = []
     length = csvLength('teamstandardbatting.csv')
@@ -22,7 +22,7 @@ def teamBatting():
             teams.append(team)
             output[team_batting["Tm"][i]] = [team_batting["H"][i], team_batting["R"][i], team_batting["R/G"][i],
                                              team_batting["HR"][i], team_batting["RBI"][i], team_batting["OBP"][i],
-                                             team_batting["SLG"][i], team_batting["OPS"][i], team_batting["OPS+"][i]]
+                                             team_batting["SLG"][i], team_batting["OPS"][i]]
     return output
 
 
@@ -57,7 +57,7 @@ def teamWar():
     return output
 
 
-#parse and return dictionary with key: team, value: defEff, Fld%
+#parse and return dictionary with key: team, value: defEff
 def teamFielding():
     teams = []
     length = csvLength('teamfielding.csv')
@@ -68,7 +68,7 @@ def teamFielding():
         team = team_fielding["Tm"][i]
         if team not in teams:
             teams.append(team)
-            output[team_fielding["Tm"][i]] = [team_fielding['DefEff'][i], team_fielding["Fld%"][i]]
+            output[team_fielding["Tm"][i]] = [team_fielding['DefEff'][i]]
     return output
 
 
