@@ -17,11 +17,10 @@ def parse(file):
     results = []
 
     for i in range(length - 1):
-        if file['W/L'][i] == 'W' or 'W-wo':
-            opps.append(file['Opp'][i])
+        opps.append(file['Opp'][i])
+        if file['W/L'][i] == 'W' or file['W/L'][i] == 'W-wo':
             results.append(1)
-        if file['W/L'][i] == 'L':
-            opps.append(file['Opp'][i])
+        else:
             results.append(0)
     return opps, results
 
@@ -33,4 +32,6 @@ def getopp(team):
 #return results of given team for 2020 szn
 def getresults(team):
     return parse('data/' + team + '2020.csv')[1]
+
+getresults('ARI')
 
