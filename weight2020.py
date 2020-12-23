@@ -139,7 +139,7 @@ def get_war_weight(team):
             weights += 1
     return weights/opp.__len__()
 
-#return weight of 'DeffEff'
+#return weight of 'DeffEf'
 def get_deffef_weight(team):
     weights = 0
     opp = parseresults2020.getopp(team)
