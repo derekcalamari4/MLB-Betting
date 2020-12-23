@@ -24,15 +24,6 @@ def compare_r(teama, teamb):
 
 #Runs/Game
 def compare_rg(teama, teamb):
-    team_a_h = batting[teama][1]
-    team_b_h = batting[teamb][1]
-    if team_a_h > team_b_h:
-        return teama
-    else:
-        return teamb
-
-#Homeruns
-def compare_hr(teama, teamb):
     team_a_h = batting[teama][2]
     team_b_h = batting[teamb][2]
     if team_a_h > team_b_h:
@@ -40,10 +31,19 @@ def compare_hr(teama, teamb):
     else:
         return teamb
 
+#Homeruns
+def compare_hr(teama, teamb):
+    team_a_h = batting[teama][3]
+    team_b_h = batting[teamb][3]
+    if team_a_h > team_b_h:
+        return teama
+    else:
+        return teamb
+
 #Runs Batted In
 def compare_rbi(teama, teamb):
-    team_a_h = batting[teama][1]
-    team_b_h = batting[teamb][1]
+    team_a_h = batting[teama][4]
+    team_b_h = batting[teamb][4]
     if team_a_h > team_b_h:
         return teama
     else:
@@ -51,8 +51,8 @@ def compare_rbi(teama, teamb):
 
 #On Base Percentage
 def compare_obp(teama, teamb):
-    team_a_h = batting[teama][1]
-    team_b_h = batting[teamb][1]
+    team_a_h = batting[teama][5]
+    team_b_h = batting[teamb][5]
     if team_a_h > team_b_h:
         return teama
     else:
@@ -60,8 +60,8 @@ def compare_obp(teama, teamb):
 
 #Slugging percentage
 def compare_slg(teama, teamb):
-    team_a_h = batting[teama][1]
-    team_b_h = batting[teamb][1]
+    team_a_h = batting[teama][6]
+    team_b_h = batting[teamb][6]
     if team_a_h > team_b_h:
         return teama
     else:
@@ -69,8 +69,8 @@ def compare_slg(teama, teamb):
 
 #OPS
 def compare_ops(teama, teamb):
-    team_a_h = batting[teama][1]
-    team_b_h = batting[teamb][1]
+    team_a_h = batting[teama][7]
+    team_b_h = batting[teamb][7]
     if team_a_h > team_b_h:
         return teama
     else:
