@@ -1,76 +1,72 @@
 import pandas
 
 
-# return length of given csv file
-def csvLength(csv):
+def csv_length(csv):
     numRows = 0
     for row in open(csv):
         numRows += 1
     return numRows
 
 
-# parse and return dictionary with key: team, value: [h, r, rg, hr, rbi, obp, slg, ops]
-def teamBatting():
+'''
+parse and return dictionary with key: team, values: statistics 
+'''
+
+
+def team_batting():
     teams = []
-    length = csvLength('data/teamstandardbatting.csv')
-    team_batting = pandas.read_csv('data/teamstandardbatting.csv')
+    length = csv_length('data/teamstandardbatting.csv')
+    batting = pandas.read_csv('data/teamstandardbatting.csv')
     output = {}
 
-    for i in range(length-1):
-        team = team_batting["Tm"][i]
+    for i in range(length - 1):
+        team = batting["Tm"][i]
         if team not in teams:
             teams.append(team)
-            output[team_batting["Tm"][i]] = [team_batting["H"][i], team_batting["R"][i], team_batting["R/G"][i],
-                                             team_batting["HR"][i], team_batting["RBI"][i], team_batting["OBP"][i],
-                                             team_batting["SLG"][i], team_batting["OPS"][i]]
+            output[batting["Tm"][i]] = [batting["H"][i], batting["R"][i], batting["R/G"][i],
+                                        batting["HR"][i], batting["RBI"][i], batting["OBP"][i],
+                                        batting["SLG"][i], batting["OPS"][i]]
     return output
 
 
-#parse and return dictionary with key: team, value: [RA/G, ERA, WHIP SO/W, BB/9]
-def teamPitching():
+def team_pitching():
     teams = []
-    length = csvLength('data/teamstandardpitching.csv')
-    team_pitching = pandas.read_csv('data/teamstandardpitching.csv')
+    length = csv_length('data/teamstandardpitching.csv')
+    pitching = pandas.read_csv('data/teamstandardpitching.csv')
     output = {}
 
-    for i in range(length-1):
-        team = team_pitching["Tm"][i]
+    for i in range(length - 1):
+        team = pitching["Tm"][i]
         if team not in teams:
             teams.append(team)
-            output[team_pitching["Tm"][i]] = [team_pitching["RA/G"][i], team_pitching["ERA"][i], team_pitching["WHIP"][i],
-                                              team_pitching["SO/W"][i], team_pitching["BB9"][i]]
+            output[pitching["Tm"][i]] = [pitching["RA/G"][i], pitching["ERA"][i], pitching["WHIP"][i],
+                                         pitching["SO/W"][i], pitching["BB9"][i]]
     return output
 
 
-#parse and return dictionary with key: team, value: WAR
-def teamWar():
+def team_war():
     teams = []
-    length = csvLength('data/teamwar.csv')
-    team_war = pandas.read_csv('data/teamwar.csv')
+    length = csv_length('data/teamwar.csv')
+    war = pandas.read_csv('data/teamwar.csv')
     output = {}
 
-    for i in range(length-1):
-        team = team_war["Tm"][i]
+    for i in range(length - 1):
+        team = war["Tm"][i]
         if team not in teams:
             teams.append(team)
-            output[team_war["Tm"][i]] = team_war['Total'][i]
+            output[war["Tm"][i]] = war['Total'][i]
     return output
 
 
-#parse and return dictionary with key: team, value: defEff
-def teamFielding():
+def team_fielding():
     teams = []
-    length = csvLength('data/teamfielding.csv')
-    team_fielding = pandas.read_csv('data/teamfielding.csv')
+    length = csv_length('data/teamfielding.csv')
+    fielding = pandas.read_csv('data/teamfielding.csv')
     output = {}
 
-    for i in range(length-1):
-        team = team_fielding["Tm"][i]
+    for i in range(length - 1):
+        team = fielding["Tm"][i]
         if team not in teams:
             teams.append(team)
-            output[team_fielding["Tm"][i]] = [team_fielding['DefEff'][i]]
+            output[fielding["Tm"][i]] = [fielding['DefEff'][i]]
     return output
-
-
-
-
