@@ -7,7 +7,7 @@ war = parse.team_war()
 
 
 '''
-Compare statistics between two teams
+Compare statistics between two teams.
 '''
 
 
