@@ -1,22 +1,20 @@
 import pandas
 
 
-# return length of given csv file
-def csvLength(csv):
-    numRows = 0
+def csv_length(csv):
+    num_rows = 0
     for row in open(csv):
-        numRows += 1
-    return numRows
+        num_rows += 1
+    return num_rows
 
 
 '''
-'Tm' 'Opp' 'W/L' (W,L, W-wo) / return team dictionary: key: 'team', value: [opp, 1 (win) or 0 (loss)]
-*** Two teams only played 58 games, not 60 ***
+Parse opponents and results for each MLB team (2020)
 '''
 
 
 def parse(file):
-    length = csvLength(file)
+    length = csv_length(file)
     file = pandas.read_csv(file)
     opps = []
     results = []
@@ -30,11 +28,9 @@ def parse(file):
     return opps, results
 
 
-# return opponents of given team for 2020 szn
-def getopp(team):
+def get_opp(team):
     return parse('data/' + team + '2020.csv')[0]
 
 
-# return results of given team for 2020 szn
-def getresults(team):
+def get_results(team):
     return parse('data/' + team + '2020.csv')[1]
