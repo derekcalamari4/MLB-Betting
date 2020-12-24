@@ -9,14 +9,19 @@ def csvLength(csv):
     return numRows
 
 
-# 'Tm' 'Opp' 'W/L' (W,L, W-wo) / return team dictionary: key: 'team', value: [opp, 1 (win) or 0 (loss)]
+'''
+'Tm' 'Opp' 'W/L' (W,L, W-wo) / return team dictionary: key: 'team', value: [opp, 1 (win) or 0 (loss)]
+*** Two teams only played 58 games, not 60 ***
+'''
+
+
 def parse(file):
     length = csvLength(file)
     file = pandas.read_csv(file)
     opps = []
     results = []
 
-    for i in range(length - 1):
+    for i in range(length - 3):
         opps.append(file['Opp'][i])
         if file['W/L'][i] == 'W' or file['W/L'][i] == 'W-wo':
             results.append(1)
@@ -25,13 +30,11 @@ def parse(file):
     return opps, results
 
 
-#return oppenents of given team for 2020 szn
+# return opponents of given team for 2020 szn
 def getopp(team):
     return parse('data/' + team + '2020.csv')[0]
 
-#return results of given team for 2020 szn
+
+# return results of given team for 2020 szn
 def getresults(team):
     return parse('data/' + team + '2020.csv')[1]
-
-getresults('ARI')
-

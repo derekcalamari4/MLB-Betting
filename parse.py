@@ -26,7 +26,7 @@ def teamBatting():
     return output
 
 
-#parse and return dictionary with key: team, value: [RA/G, ERA, WHIP SO/W]
+#parse and return dictionary with key: team, value: [RA/G, ERA, WHIP SO/W, BB/9]
 def teamPitching():
     teams = []
     length = csvLength('data/teamstandardpitching.csv')
@@ -38,7 +38,7 @@ def teamPitching():
         if team not in teams:
             teams.append(team)
             output[team_pitching["Tm"][i]] = [team_pitching["RA/G"][i], team_pitching["ERA"][i], team_pitching["WHIP"][i],
-                                              team_pitching["SO/W"][i]]
+                                              team_pitching["SO/W"][i], team_pitching["BB9"][i]]
     return output
 
 
@@ -70,6 +70,7 @@ def teamFielding():
             teams.append(team)
             output[team_fielding["Tm"][i]] = [team_fielding['DefEff'][i]]
     return output
+
 
 
 
