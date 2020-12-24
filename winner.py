@@ -4,6 +4,10 @@ teams = ['ARI', 'ATL', 'BAL', 'BOS', 'CHC', 'CHW', 'CIN', 'CLE', 'COL', 'DET', '
          'LAA', 'LAD', 'MIA', 'MIL', 'MIN', 'NYM', 'NYY', 'OAK', 'PHI', 'PIT', 'SDP', 'SEA',
          'SFG', 'STL', 'TBR', 'TEX', 'TOR', 'WSN']
 
+'''
+main interaction with console / determine winner between two teams 
+'''
+
 
 def get_winner():
     teama = input("first team: ")
@@ -16,80 +20,24 @@ def get_winner():
     pitching_defenseb = 0
     wara = 0
     warb = 0
+    stat_abb1 = {'H': 0, 'R': 1, 'R/G': 2, 'HR': 3, 'RBI': 4, 'OBP': 5, 'SLG': 6, 'OPS': 7}
+    stat_abb2 = {'RA/G': 0, 'ERA': 1, 'WHIP': 2, 'SO/W': 3, 'BB/9': 4}
     if teama not in teams or teamb not in teams:
         print("Enter valid abbreviations for MLB teams")
-    if weight2020.get_h_weight(teama) > weight2020.get_h_weight(teamb):
-        counta += 1
-        offensea += 1
-    else:
-        countb += 1
-        offenseb += 1
-    if weight2020.get_r_weight(teama) > weight2020.get_r_weight(teamb):
-        counta += 1
-        offensea += 1
-    else:
-        countb += 1
-        offenseb += 1
-    if weight2020.get_rg_weight(teama) > weight2020.get_rg_weight(teamb):
-        counta += 1
-        offensea += 1
-    else:
-        countb += 1
-        offenseb += 1
-    if weight2020.get_hr_weight(teama) > weight2020.get_hr_weight(teamb):
-        counta += 1
-        offensea += 1
-    else:
-        countb += 1
-        offenseb += 1
-    if weight2020.get_rbi_weight(teama) > weight2020.get_rbi_weight(teamb):
-        counta += 1
-        offensea += 1
-    else:
-        countb += 1
-        offenseb += 1
-    if weight2020.get_obp_weight(teama) > weight2020.get_obp_weight(teamb):
-        counta += 1
-        offensea += 1
-    else:
-        countb += 1
-        offenseb += 1
-    if weight2020.get_slg_weight(teama) > weight2020.get_slg_weight(teamb):
-        counta += 1
-        offensea += 1
-    else:
-        countb += 1
-        offenseb += 1
-    if weight2020.get_ops_weight(teama) > weight2020.get_ops_weight(teamb):
-        counta += 1
-        offensea += 1
-    else:
-        countb += 1
-        offenseb += 1
-    if weight2020.get_rag_weight(teama) > weight2020.get_rag_weight(teamb):
-        counta += 1
-        pitching_defensea += 1
-    else:
-        countb += 1
-        pitching_defenseb += 1
-    if weight2020.get_era_weight(teama) > weight2020.get_era_weight(teamb):
-        counta += 1
-        pitching_defensea += 1
-    else:
-        countb += 1
-        pitching_defenseb += 1
-    if weight2020.get_whip_weight(teama) > weight2020.get_whip_weight(teamb):
-        counta += 1
-        pitching_defensea += 1
-    else:
-        countb += 1
-        pitching_defenseb += 1
-    if weight2020.get_sow_weight(teama) > weight2020.get_sow_weight(teamb):
-        counta += 1
-        pitching_defensea += 1
-    else:
-        countb += 1
-        pitching_defenseb += 1
+    for stat in stat_abb1:
+        if weight2020.get_batting_weight(teama, stat) > weight2020.get_batting_weight(teamb, stat):
+            counta += 1
+            offensea += 1
+        elif weight2020.get_batting_weight(teamb, stat) > weight2020.get_batting_weight(teama, stat):
+            countb += 1
+            offenseb += 1
+    for stat in stat_abb2:
+        if weight2020.get_pitching_weight(teama, stat) > weight2020.get_pitching_weight(teamb, stat):
+            counta += 1
+            pitching_defensea += 1
+        elif weight2020.get_pitching_weight(teamb, stat) > weight2020.get_pitching_weight(teama, stat):
+            countb += 1
+            pitching_defenseb += 1
     if weight2020.get_war_weight(teama) > weight2020.get_war_weight(teamb):
         counta += 3
         wara += 1
@@ -120,3 +68,4 @@ def get_winner():
         print("Bet: " + teamb)
     if counta == countb:
         print("Bet: None")
+
