@@ -33,7 +33,7 @@ def compare_pitching(teama, teamb, stat):
         else:
             return teamb
     else:
-        if teama > teamb:
+        if teama < teamb:
             return teama
         else:
             return teamb
