@@ -68,4 +68,3 @@ def get_winner():
         print("Bet: " + teamb)
     if counta == countb:
         print("Bet: None")
-
