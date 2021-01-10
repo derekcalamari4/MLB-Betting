@@ -36,11 +36,11 @@ def compare_weights(teama, teamb):
 
 
 def get_comparison():
-    teama = input("first team: ")
-    teamb = input("second team: ")
+    teama = input('first team: ')
+    teamb = input('second team: ')
 
     if teama not in teams or teamb not in teams:
-        print("Enter valid abbreviations for MLB teams")
+        print('Enter valid abbreviations for MLB teams')
     weights = compare_weights(teama, teamb)
     if weights[0] > weights[1]:
         print('OFF: ' + teama)
@@ -54,3 +54,4 @@ def get_comparison():
         print('WAR: ' + teama)
     else:
         print('WAR: ' + teamb)
+get_comparison()
