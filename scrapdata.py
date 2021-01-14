@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import csv
 
 # BeautifulSoup
-driver = webdriver.Chrome('/Users/derek.calamari/PycharmProjects/ScrapPrac/chromedriver 2')
+driver = webdriver.Chrome('/Users/derek.calamari/Documents/MLBData/chromedriver 2')
 driver.get('https://www.baseball-reference.com/leagues/MLB/2020.shtml')
 time.sleep(5)
 html = driver.page_source
