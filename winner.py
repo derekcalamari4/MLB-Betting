@@ -1,5 +1,5 @@
 import weight2020
-import effiency
+import efficiency
 
 
 teams = ['ARI', 'ATL', 'BAL', 'BOS', 'CHC', 'CHW', 'CIN', 'CLE', 'COL', 'DET', 'HOU', 'KCR',
@@ -65,11 +65,13 @@ def get_comparison():
     else:
         b_total += 1
         print('WAR: ' + teamb)
-    print(teama + ' OFF EFF: ' + str(effiency.off_eff(teama)) + ' %')
-    print(teama + ' DEF EFF: ' + str(effiency.def_eff(teama)) + ' %')
-    print(teamb + ' OFF EFF: ' + str(effiency.off_eff(teamb)) + ' %')
-    print(teamb + ' DEF EFF: ' + str(effiency.def_eff(teamb)) + ' %')
+    print(teama + ' OFF EFF: ' + str(round(efficiency.off_eff(teama), 3)) + ' %')
+    print(teama + ' DEF EFF: ' + str(round(efficiency.def_eff(teama), 3)) + ' %')
+    print(teamb + ' OFF EFF: ' + str(round(efficiency.off_eff(teamb), 3)) + ' %')
+    print(teamb + ' DEF EFF: ' + str(round(efficiency.def_eff(teamb), 3)) + ' %')
     if a_total > b_total:
         print('PROJ WIN: ' + teama)
     elif b_total > a_total:
         print('PROJ WIN: ' + teamb)
+
+get_comparison()
