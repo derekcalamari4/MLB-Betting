@@ -1,2 +1,2 @@
 MLB Betting Model
-data from rotowire.com and baseball-reference.com 
+data from rotowire.com, baseball-reference.com, and retrosheet.org
