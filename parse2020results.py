@@ -1,11 +1,11 @@
 import pandas
 
-#CHA = CHW, CHN = CHC, NYA = NYY, NYN = NYM, SDN = SDP, SFN = SFG, SLN = STL, TBA = TBR
+# CHA = CHW, CHN = CHC, NYA = NYY, NYN = NYM, SDN = SDP, SFN = SFG, SLN = STL, TBA = TBR
 teams = ['ANA', 'ARI', 'ATL', 'BAL', 'BOS', 'CHA', 'CHN', 'CIN', 'CLE', 'COL', 'DET', 'HOU', 'KCA', 'LAN',
          'MIA', 'MIL', 'MIN', 'NYA', 'NYN', 'OAK', 'PHI', 'PIT', 'SDN', 'SEA', 'SFN', 'SLN', 'TBA', 'TEX',
          'TOR', 'WAS']
 
-#csv length
+# csv length
 def csv_length(csv):
     numRows = 0
     for row in open(csv):
