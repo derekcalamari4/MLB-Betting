@@ -1,6 +1,7 @@
 import pandas
 import scrapdata
 
+
 def csv_length(csv):
     numRows = 0
     for row in open(csv):
