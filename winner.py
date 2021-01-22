@@ -38,7 +38,7 @@ def compare_weights(teama, teamb):
     return offense_a, offense_b, defense_a, defense_b, war_a, war_b
 
 
-def get_comparison():
+def console_comparison():
     teama = input('first team: ')
     teamb = input('second team: ')
 
@@ -74,4 +74,24 @@ def get_comparison():
     elif b_total > a_total:
         print('PROJ WIN: ' + teamb)
 
-get_comparison()
+
+def winner(teama, teamb):
+    weights = compare_weights(teama, teamb)
+    a_total = 0
+    b_total = 0
+    if weights[0] > weights[1]:
+        a_total += 1
+    else:
+        b_total += 1
+    if weights[2] > weights[3]:
+        a_total += 1
+    else:
+        b_total += 1
+    if weights[4] > weights[5]:
+        a_total += 1
+    else:
+        b_total += 1
+    if a_total > b_total:
+        return teama
+    elif b_total > a_total:
+        return teamb
