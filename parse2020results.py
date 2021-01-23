@@ -13,7 +13,7 @@ def csv_length(csv):
     return numRows
 
 '''
-parse 2020 results / return dictionary: ['team1/team2' : 0 or 1] 
+parse  2020 results / return dictionary: ['team1/team2' : 0 or 1] 
 0 = team1 victory
 1 = team2 victory
 '''
