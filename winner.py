@@ -32,9 +32,9 @@ def compare_weights(teama, teamb):
         else:
             defense_b += 1
     if weight2020.get_war_weight(teama) > weight2020.get_war_weight(teamb):
-        war_a += 2
+        war_a += 1
     else:
-        war_b += 2
+        war_b += 1
     return offense_a, offense_b, defense_a, defense_b, war_a, war_b
 
 
@@ -65,17 +65,27 @@ def console_comparison():
     else:
         b_total += 1
         print('WAR: ' + teamb)
-    print(teama + ' OFF EFF: ' + str(round(efficiency.off_eff(teama), 3)) + ' %')
-    print(teama + ' DEF EFF: ' + str(round(efficiency.def_eff(teama), 3)) + ' %')
-    print(teamb + ' OFF EFF: ' + str(round(efficiency.off_eff(teamb), 3)) + ' %')
-    print(teamb + ' DEF EFF: ' + str(round(efficiency.def_eff(teamb), 3)) + ' %')
+    if round(efficiency.off_eff(teama), 3) > round(efficiency.off_eff(teamb), 3):
+        a_total += 1
+        print('OFF EFF: ' + teama)
+    else:
+        b_total += 1
+        print('OFF EFF: ' + teamb)
+    if round(efficiency.def_eff(teama), 3) > round(efficiency.def_eff(teamb), 3):
+        a_total += 1
+        print('DEF EFF: ' + teama)
+    else:
+        b_total += 1
+        print('DEFF EFF: ' + teamb)
     if a_total > b_total:
         print('PROJ WIN: ' + teama)
     elif b_total > a_total:
         print('PROJ WIN: ' + teamb)
 
 
-def winner(teama, teamb):
+def game_winner(teama, teamb):
+    if teama not in teams or teamb not in teams:
+        print('Enter valid abbreviations for MLB teams')
     weights = compare_weights(teama, teamb)
     a_total = 0
     b_total = 0
